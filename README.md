@@ -2,7 +2,7 @@
 
 This is an example project for running Playwright on AWS Lambda using the newly released features of running custom container images as Lambda functions.
 
-*NOTE! Currently only Chromium and WebKit browser are working. Firefox requires some more tuning...*
+**NOTE! Currently only Chromium and WebKit browser are working. Firefox requires some more tuning...**
 
 # How to use this
 
@@ -52,4 +52,4 @@ Push image to ECR
 docker push YOUR_AWS_ACCOUNT_ID.dkr.ecr.eu-west-1.amazonaws.com/playwright-aws-lambda-example
 ```
 
-Create and deploy an AWS Lambda function with your newly created container image! :rocket"
+Create and deploy an AWS Lambda function with your newly created container image! :rocket:
