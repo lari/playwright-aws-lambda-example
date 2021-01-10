@@ -1,0 +1,11 @@
+{
+    "name": "playwright-aws-lambda-example",
+    "version": "0.0.1",
+    "main": "index.js",
+    "author": "lari@swift.fi",
+    "license": "MIT",
+    "private": false,
+    "dependencies": {
+      "playwright": "^1.7.1"
+    }
+  }
