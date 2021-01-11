@@ -3,7 +3,7 @@ const { webkit, chromium, firefox } = require('playwright');
 
 getCustomExecutablePath = (expectedPath) => {
     const suffix = expectedPath.split('/.cache/ms-playwright/')[1];
-    return  `/ms-playwright/${suffix}`;
+    return  `/home/pwuser/.cache/ms-playwright/${suffix}`;
 }
 
 exports.handler = async (event, context) => {
