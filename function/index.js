@@ -8,6 +8,7 @@ getCustomExecutablePath = (expectedPath) => {
 
 exports.handler = async (event, context) => {
     const browserName = event.browser || 'chromium';
+    const extraLaunchArgs = event.browserArgs || [];
     const browserTypes = {
         'webkit': webkit,
         'chromium': chromium,
@@ -16,11 +17,6 @@ exports.handler = async (event, context) => {
     const browserLaunchArgs = {
         'webkit': [],
         'chromium': [
-            '--disable-dev-shm-usage',
-            '--no-sandbox',
-            '--no-zygote',
-            '--use-gl=swiftshader',
-            '--in-process-gpu',
             '--single-process',
         ],
         'firefox': []
@@ -30,7 +26,7 @@ exports.handler = async (event, context) => {
         console.log(`Starting browser: ${browserName}`);
         browser = await browserTypes[browserName].launch({
             executablePath: getCustomExecutablePath(browserTypes[browserName].executablePath()),
-            args: browserLaunchArgs[browserName],
+            args: browserLaunchArgs[browserName].concat(extraLaunchArgs),
         });
         const context = await browser.newContext();
         const page = await context.newPage();
