@@ -7,7 +7,7 @@ getCustomExecutablePath = (expectedPath) => {
 }
 
 exports.handler = async (event, context) => {
-    const browserName = event.browser || 'chromium';
+    let browserName = event.browser || 'chromium';
     const extraLaunchArgs = event.browserArgs || [];
     const browserTypes = {
         'webkit': webkit,
@@ -22,6 +22,10 @@ exports.handler = async (event, context) => {
         //'firefox': [],
     }
     let browser = null;
+    if (Object.keys(browserTypes).indexOf(browserName) < 0) {
+        console.log(`Browser '${browserName}' not supported, using chromium`);
+        browserName = 'chromium';
+    }
     try {
         console.log(`Starting browser: ${browserName}`);
         browser = await browserTypes[browserName].launch({
