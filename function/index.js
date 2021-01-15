@@ -1,4 +1,4 @@
-const { webkit, chromium, firefox } = require('playwright');
+const { webkit, chromium } = require('playwright');
 
 
 getCustomExecutablePath = (expectedPath) => {
@@ -12,14 +12,14 @@ exports.handler = async (event, context) => {
     const browserTypes = {
         'webkit': webkit,
         'chromium': chromium,
-        'firefox': firefox
+        //'firefox': firefox,
     };
     const browserLaunchArgs = {
         'webkit': [],
         'chromium': [
             '--single-process',
         ],
-        'firefox': []
+        //'firefox': [],
     }
     let browser = null;
     try {

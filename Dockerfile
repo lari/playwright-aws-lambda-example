@@ -44,6 +44,9 @@ WORKDIR ${FUNCTION_DIR}
 # Copy in the built dependencies
 COPY --from=build-image ${FUNCTION_DIR} ${FUNCTION_DIR}
 
+# Remove Firefox
+RUN rm -R /home/pwuser/.cache/ms-playwright/firefox-*
+
 # Add Lambda Runtime Interface Emulator and use a script in the ENTRYPOINT for simpler local runs
 ADD https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest/download/aws-lambda-rie /usr/local/bin/aws-lambda-rie
 RUN chmod 755 /usr/local/bin/aws-lambda-rie
