@@ -2,6 +2,8 @@
 
 This is an example project for running Playwright on AWS Lambda using the newly released features of running custom container images as Lambda functions.
 
+I also wrote [a post about Playwright on AWS Lambda](https://www.larihaataja.com/running-e2e-tests-playwright-aws-lambda) to my Hashbode blog.
+
 **NOTE! Currently only Chromium and WebKit browser are working. Firefox requires some more tuning...**
 
 # How to use this
